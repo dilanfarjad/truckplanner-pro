@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: truckplanner-backend
+    env: python
+    buildCommand: pip install -r backend/requirements.txt && pip install email-validator PyJWT weasyprint
+    startCommand: cd backend && python server.py
+    envVars:
+      - key: MONGO_URL
+        value: mongodb+srv://manus_user:Manus2026!@cluster0.mongodb.net/truckplanner?retryWrites=true&w=majority
+      - key: DB_NAME
+        value: truckplanner
+      - key: JWT_SECRET
+        value: truckplanner_secure_secret_2026
+      - key: PORT
+        value: 8000
