@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">TruckerMaps</string>
+    <string name="title_activity_main">TruckerMaps</string>
+    <string name="package_name">com.truckermaps.app</string>
+    <string name="custom_url_scheme">com.truckermaps.app</string>
+</resources>

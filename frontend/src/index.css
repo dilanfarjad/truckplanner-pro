@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Leaflet CSS fix for dark theme */
+@import 'leaflet/dist/leaflet.css';
+
+/* Fix Leaflet z-index for navigation overlays */
+.leaflet-pane {
+    z-index: 1 !important;
+}
+.leaflet-control {
+    z-index: 10 !important;
+}
+.leaflet-top, .leaflet-bottom {
+    z-index: 10 !important;
+}
+
+body {
+    margin: 0;
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code, .font-mono {
+    font-family: 'JetBrains Mono', source-code-pro, Menlo, Monaco, Consolas, monospace;
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+@layer base {
+    :root {
+        --background: 240 10% 3.9%;
+        --foreground: 0 0% 98%;
+        --card: 240 10% 7%;
+        --card-foreground: 0 0% 98%;
+        --popover: 240 10% 7%;
+        --popover-foreground: 0 0% 98%;
+        --primary: 24 95% 53%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 160 84% 39%;
+        --secondary-foreground: 0 0% 100%;
+        --muted: 240 4% 16%;
+        --muted-foreground: 240 5% 65%;
+        --accent: 240 4% 16%;
+        --accent-foreground: 0 0% 98%;
+        --destructive: 0 84% 60%;
+        --destructive-foreground: 0 0% 98%;
+        --warning: 48 96% 53%;
+        --warning-foreground: 0 0% 9%;
+        --border: 240 4% 16%;
+        --input: 240 4% 16%;
+        --ring: 24 95% 53%;
+        --chart-1: 24 95% 53%;
+        --chart-2: 160 84% 39%;
+        --chart-3: 48 96% 53%;
+        --chart-4: 0 84% 60%;
+        --chart-5: 240 5% 65%;
+        --radius: 0.75rem;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+
+/* Custom scrollbar for dark theme */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted));
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground));
+}
+
+/* Leaflet map customizations */
+.leaflet-container {
+    background: #09090b;
+    font-family: 'Manrope', sans-serif;
+}
+
+.leaflet-control-attribution {
+    background: rgba(9, 9, 11, 0.8) !important;
+    color: hsl(var(--muted-foreground)) !important;
+    font-size: 10px;
+}
+
+.leaflet-control-attribution a {
+    color: hsl(var(--primary)) !important;
+}
+
+.leaflet-control-zoom {
+    border: none !important;
+}
+
+.leaflet-control-zoom a {
+    background: hsl(var(--card)) !important;
+    color: hsl(var(--foreground)) !important;
+    border: 1px solid hsl(var(--border)) !important;
+}
+
+.leaflet-control-zoom a:hover {
+    background: hsl(var(--accent)) !important;
+}
+
+.leaflet-popup-content-wrapper {
+    background: hsl(var(--card)) !important;
+    color: hsl(var(--foreground)) !important;
+    border-radius: var(--radius) !important;
+    border: 1px solid hsl(var(--border)) !important;
+}
+
+.leaflet-popup-tip {
+    background: hsl(var(--card)) !important;
+}
+
+/* Vehicle pictogram buttons */
+.vehicle-btn {
+    @apply h-20 w-20 flex flex-col items-center justify-center gap-1 rounded-xl border-2 border-border bg-card/50 transition-all duration-200;
+}
+
+.vehicle-btn:hover {
+    @apply border-primary/50 bg-card;
+}
+
+.vehicle-btn.selected {
+    @apply border-primary bg-primary/10 shadow-[0_0_20px_rgba(249,115,22,0.2)];
+}
+
+/* Break indicator gauge */
+.break-gauge {
+    @apply relative h-4 w-full rounded-full bg-muted overflow-hidden;
+}
+
+.break-gauge-fill {
+    @apply absolute left-0 top-0 h-full rounded-full transition-all duration-500;
+}
+
+.break-gauge-fill.safe {
+    background: hsl(var(--secondary));
+}
+
+.break-gauge-fill.warning {
+    background: hsl(var(--warning));
+}
+
+.break-gauge-fill.danger {
+    background: hsl(var(--destructive));
+}
+
+/* Glow effects */
+.glow-primary {
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.15);
+}
+
+.glow-secondary {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.15);
+}
+
+.glow-warning {
+    box-shadow: 0 0 20px rgba(234, 179, 8, 0.15);
+}
+
+/* Touch-friendly targets */
+.touch-target {
+    @apply min-h-[56px] min-w-[56px];
+}
+
+/* Animation utilities */
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: 0 0 15px rgba(249, 115, 22, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(249, 115, 22, 0.5);
+    }
+}
+
+.animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Data display styling */
+.data-value {
+    @apply font-mono text-xl md:text-2xl font-medium tracking-wide;
+}
+
+.data-label {
+    @apply text-sm text-muted-foreground uppercase tracking-wider;
+}
+
+@layer base {
+    [data-debug-wrapper="true"] {
+        display: contents !important;
+    }
+}

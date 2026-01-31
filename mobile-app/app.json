@@ -1,0 +1,48 @@
+{
+  "expo": {
+    "name": "TruckerMaps",
+    "slug": "truckermaps",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#09090B"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.truckermaps.app",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "TruckerMaps benötigt Ihren Standort für die Navigation und Routenplanung.",
+        "NSLocationAlwaysUsageDescription": "TruckerMaps benötigt Ihren Standort im Hintergrund für die aktive Navigation."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#09090B"
+      },
+      "package": "com.truckermaps.app",
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "TruckerMaps benötigt Ihren Standort für Navigation."
+        }
+      ]
+    ]
+  }
+}

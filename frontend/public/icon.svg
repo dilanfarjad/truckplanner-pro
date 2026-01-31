@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192">
+  <rect width="192" height="192" fill="#09090B" rx="24"/>
+  <g transform="translate(32, 48)">
+    <!-- Truck Icon -->
+    <path d="M20 72h88v24H20z" fill="#F97316"/>
+    <path d="M20 48h64v24H20z" fill="#F97316"/>
+    <path d="M84 48h24v48H84z" fill="#10B981"/>
+    <!-- Wheels -->
+    <circle cx="40" cy="96" r="12" fill="#333"/>
+    <circle cx="88" cy="96" r="12" fill="#333"/>
+    <!-- Route line -->
+    <path d="M4 24l16 16 16-16 16 16 16-16 16 16 16-16 16 16 16-16" stroke="#F97316" stroke-width="4" fill="none"/>
+  </g>
+</svg>

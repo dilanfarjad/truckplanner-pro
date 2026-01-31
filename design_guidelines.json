@@ -1,0 +1,170 @@
+{
+  "identity": {
+    "name": "TruckerMaps",
+    "persona": "The Performance Pro",
+    "archetype": "Tactical Utility",
+    "mission": "Simplify the complex life of a truck driver. Zero distraction, maximum clarity.",
+    "principles": [
+      "Fat Finger Friendly: Minimum touch target 56px.",
+      "Glanceability: Information must be readable in 0.5 seconds.",
+      "Map is King: The map is the background, UI floats on top.",
+      "Role-Specific Reality: Drivers see the road, Managers see the fleet."
+    ]
+  },
+  "typography": {
+    "headings": {
+      "family": "Barlow Condensed, sans-serif",
+      "weights": ["600", "700"],
+      "usage": "Page titles, major stats, vehicle IDs",
+      "letterSpacing": "tracking-tight"
+    },
+    "body": {
+      "family": "Manrope, sans-serif",
+      "weights": ["400", "500"],
+      "usage": "General UI text, instructions, settings"
+    },
+    "data": {
+      "family": "JetBrains Mono, monospace",
+      "weights": ["500"],
+      "usage": "Tachograph counters, coordinates, prices, fuel stats"
+    }
+  },
+  "colors": {
+    "palette": {
+      "primary": {
+        "name": "Safety Orange",
+        "hex": "#F97316",
+        "tailwind": "orange-500",
+        "usage": "Primary Actions, Alerts, Active Route Path"
+      },
+      "secondary": {
+        "name": "Guidance Blue",
+        "hex": "#3B82F6",
+        "tailwind": "blue-500",
+        "usage": "Navigation Arrows, Info, Secondary Actions"
+      },
+      "background": {
+        "light": "#F8FAFC",
+        "dark": "#09090B",
+        "driver_mode": "#000000"
+      },
+      "surface": {
+        "light": "#FFFFFF",
+        "dark": "#18181B",
+        "glass": "rgba(24, 24, 27, 0.8)"
+      },
+      "status": {
+        "success": "#10B981",
+        "warning": "#F59E0B",
+        "error": "#EF4444"
+      }
+    },
+    "theme_strategy": {
+      "driver": "Dark Mode Default (Reduces eye strain at night)",
+      "manager": "Light Mode Default (Better for data density)",
+      "navigation": "High Contrast Dark Mode (Always)"
+    }
+  },
+  "layout_system": {
+    "spacing": {
+      "base": "4px",
+      "container_padding": "p-4 md:p-6",
+      "touch_target": "h-14 w-full (56px)"
+    },
+    "grids": {
+      "dashboard_driver": "grid-cols-1 gap-4 (Vertical Stack)",
+      "dashboard_manager": "grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 (Bento Grid)"
+    },
+    "z_index": {
+      "map": 0,
+      "overlays": 10,
+      "floating_controls": 20,
+      "modals": 50,
+      "toasts": 100
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-primary text-white hover:bg-primary/90 h-14 rounded-xl font-heading uppercase tracking-wide shadow-lg shadow-orange-500/20",
+      "secondary": "bg-secondary text-white hover:bg-secondary/90 h-14 rounded-xl font-heading uppercase tracking-wide",
+      "ghost": "hover:bg-accent hover:text-accent-foreground h-14 rounded-xl",
+      "icon": "h-14 w-14 rounded-full bg-card border border-border shadow-sm flex items-center justify-center"
+    },
+    "cards": {
+      "style": "bg-card text-card-foreground rounded-xl border border-border/50 shadow-sm",
+      "driver_stat": "bg-card/90 backdrop-blur-md border-l-4 border-primary p-4"
+    },
+    "inputs": {
+      "style": "h-14 bg-background border-input rounded-lg focus:ring-2 focus:ring-primary focus:border-primary text-lg"
+    },
+    "navigation_bar": {
+      "driver": "Fixed bottom bar, h-20, bg-card/95 backdrop-blur-xl border-t border-border grid grid-cols-4 items-center",
+      "manager": "Sidebar navigation, w-64, bg-card border-r border-border"
+    }
+  },
+  "map_configuration": {
+    "provider": "CartoDB",
+    "tiles": {
+      "light": "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
+      "dark": "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+    },
+    "attribution": "&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors &copy; <a href='https://carto.com/attributions'>CARTO</a>",
+    "styling": {
+      "filter": "saturate(0.8) contrast(1.1)",
+      "route_line": {
+        "color": "#3B82F6",
+        "weight": 6,
+        "opacity": 0.9
+      },
+      "current_location": {
+        "color": "#F97316",
+        "fillColor": "#F97316",
+        "fillOpacity": 1,
+        "radius": 8
+      }
+    }
+  },
+  "visual_enhancers": {
+    "glassmorphism": "backdrop-blur-xl bg-black/40 border border-white/10",
+    "shadows": "shadow-[0_8px_30px_rgb(0,0,0,0.12)]",
+    "gradients": "None for backgrounds. Subtle radial gradients for 'Active' states only."
+  },
+  "assets": {
+    "images": [
+      {
+        "category": "hero_background",
+        "url": "https://images.unsplash.com/photo-1608153760327-cd3808dc6ecb?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "description": "Blue and black truck on road, high quality, moody"
+      },
+      {
+        "category": "login_bg",
+        "url": "https://images.unsplash.com/photo-1569924291145-12a05f455966?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "description": "Trucks on highway at sunset, warm tones"
+      },
+      {
+        "category": "dashboard_bg",
+        "url": "https://images.unsplash.com/photo-1571769562171-24f53fab08a9?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "description": "Aerial view of road, clean, minimalist"
+      }
+    ],
+    "icons": "Lucide React (Default). Use bold stroke width (2px or 2.5px) for better visibility."
+  },
+  "instructions_to_main_agent": [
+    "1. IMPLEMENT ROLE-BASED ROUTING: Check user role on login. If 'driver' -> /driver/dashboard. If 'manager' -> /manager/dashboard.",
+    "2. FIX THE MAP: Replace the default OSM tiles with the CartoDB tiles defined in 'map_configuration'. Apply the CSS filters.",
+    "3. GOOGLE MAPS UX: For the Route Planner, make the map full screen. Put the input fields in a floating card (top-left or bottom-sheet on mobile).",
+    "4. DRIVER DASHBOARD: Must be 'Glanceable'. Show ONLY: Remaining Drive Time, Next Break, Current Job. No clutter.",
+    "5. MANAGER DASHBOARD: Use the 'Bento Grid' layout. Show Fleet Status, Fuel Costs, Active Routes.",
+    "6. NAVIGATION MODE: When in 'Nav Mode', hide all non-essential UI. Show only the next turn instruction (big arrow) and ETA.",
+    "7. SCROLL FIX: Ensure 'body { overflow: hidden; }' for the map view to prevent the 'bouncy' scroll effect. The map container should handle its own panning.",
+    "8. DATA-TESTID: Add 'data-testid' to every button and input."
+  ],
+  "universal_guidelines": [
+    "Don't make generic centered layouts.",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "Use glass-morphism effects with backdrop filters (12-24px blur) for floating controls.",
+    "Every interaction needs micro-animations - hover states, transitions.",
+    "Use 2-3x more spacing than feels comfortable inside containers.",
+    "NEVER use AI assistant Emoji characters."
+  ]
+}
